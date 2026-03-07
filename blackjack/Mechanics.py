@@ -37,3 +37,4 @@ class Player:
 
     def hand_reset(self):
         self.hand.clear()
+ 
