@@ -56,5 +56,6 @@ Blackjack is a classic card game where players try to get as close as possible t
 ## Upcoming Features:
 - Betting system
 - +1 Shuffling Method - Overhand Shuffle
-- Smarter dealer
-- A more user friendly interface which means using a python library called [***Pygame***](https://www.pygame.org)
+- Smarter dealer (Machine Learning Applied)
+- A more user friendly interface using a python library called [***Pygame***](https://www.pygame.org)
+- Database: For game history and possibly a leaderboard with the use of [***SQLite***](https://www.sqlite.org)
