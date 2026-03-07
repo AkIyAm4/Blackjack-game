@@ -1,4 +1,4 @@
-from SlowPrint import slow_print
+# Game's Core Mechanics
 
 class Player:
     values = {
@@ -31,13 +31,9 @@ class Player:
 
     def show_hand(self, hide_first = False):
         if hide_first:
-            slow_print("?", *self.hand[1:])
+            print("?", *self.hand[1:])
         else:
-            slow_print(*self.hand)
+            print(*self.hand)
 
     def hand_reset(self):
         self.hand.clear()
-
-if __name__ == "__main__":
-    pass
-#
