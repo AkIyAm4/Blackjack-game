@@ -30,19 +30,23 @@ class Player:
         self.balance += self.bet * 2
         self.bet = 0
 
-    def win_bet_pvp(self, opponent_bet): # Figure out how to do handle this in real time.
+    def win_bet_pvp(self, opponent_bet):
         self.balance += self.bet + opponent_bet
         self.bet = 0
 
-    def win_blackjack_dealer(self): # For v.s. Machine only
+    def win_blackjack(self): # For v.s. Machine only. Winning a blackjack in PvP is just simply getting the pot.
         self.balance += int(self.bet * 2.5)
         self.bet = 0
 
-    def lose_bet(self):
+    def lose_bet(self): # For v.s. Machine only
+        self.bet = 0
+
+    def lose_bet_pvp(self, opponent_bet):
+        self.balance -= self.bet + opponent_bet
         self.bet = 0
 
     def tie(self):
-        self.balance += self.bet
+        self.balance += self.bet # Bet just goes back to you. The same goes to PvP
         self.bet = 0
 
     def broke(self):
