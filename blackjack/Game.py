@@ -1,8 +1,6 @@
 from GameModes import Game
 
 def main():
-    game = Game.OnePlayer()
+    """ Entry point for the game. """
+    game = Game.VSMachine()
     return game
-
-if __name__ == "__main__":
-    main()
