@@ -1,3 +1,5 @@
+# This section silently records all the betting history for the machine to learn from.
+
 class BetTracker:
     def __init__(self):
         self.history = [] # list of {"bet": amount, "result": "win"/"loss"/"tie"}
