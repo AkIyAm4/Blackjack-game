@@ -2,7 +2,7 @@ from Deck_Generator import Deck
 from Mechanics import Player
 
 class Game:
-    class OnePlayer:
+    class VSMachine:
         def __init__(self):
             self.deck = Deck()
             self.player = Player("You")
@@ -13,6 +13,7 @@ class Game:
             self.message = ""
 
         def get_state(self):
+            """Returns the current game state. The GUI will read this to know what to display."""
             return {
                 "player_hand": self.player.hand,
                 "dealer_hand": self.dealer.hand,
@@ -25,6 +26,8 @@ class Game:
             }
 
         def start_round(self):
+            """Deals the opening two cards to both player and dealer."""
+            # Basically resets everything to the default values.
             self.player.hand_reset()
             self.dealer.hand_reset()
             self.p_stand = False
@@ -37,6 +40,7 @@ class Game:
                 self.player.draw_card(self.deck)
                 self.dealer.draw_card(self.deck)
 
+            # Check for immediate blackjacks
             if self.player.calculation() == 21:
                 self.player.score += 1
                 self.round_over = True
@@ -47,6 +51,8 @@ class Game:
                 self.message = "Dealer has Blackjack! Dealer wins."
 
         def player_hit(self):
+            """Player chooses to stand. GUI calls this when the Stand button is pressed.
+            In other words, this is for the hit button"""
             if self.round_over or self.p_stand:
                 return
 
@@ -57,10 +63,13 @@ class Game:
                 self.round_over = True
                 self.message = "You busted! Dealer wins."
 
+            # After the player hits, advance the dealer's turn
             if not self.round_over:
                 self._dealer_turn()
 
         def player_stand(self):
+            """Player chooses to stand. GUI calls this when the Stand button is pressed.
+            In other words, this is for the stand button"""
             if self.round_over or self.p_stand:
                 return
 
@@ -68,6 +77,7 @@ class Game:
             self._dealer_turn()
 
         def _dealer_turn(self):
+            """Handles the dealer's logic after the player acts."""
             if not self.p_stand:
                 return
 
@@ -102,6 +112,7 @@ class Game:
             self.round_over = True
 
         def get_final_result(self):
+            """Returns the overall session result. GUI calls this on game over screen."""
             p = self.player.score
             d = self.dealer.score
             if p > d:
@@ -111,6 +122,7 @@ class Game:
             else:
                 return f"Final Score: You {p} - Dealer {d} | Dealer won the session."
 
-    class TwoPlayers:
+    class PVP:
         def __init__(self):
+            # Under Maintenance
             pass
