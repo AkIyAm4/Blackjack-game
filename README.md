@@ -6,13 +6,13 @@ A python project based on a card game called ***blackjack*** or ***21***.
 
 This project's logic might be complete but there are tons of other things that still needs to be improved and added to make the game realistic as much as possible.
 
-## 🃏 Blackjack Rules
+## Blackjack Rules
 
 Blackjack is a classic card game where players try to get as close as possible to **21** without going over.
 
 ---
 
-### 🎯 Objective
+### Objective
 - Beat the dealer by having a hand value **closer to 21** than the dealer’s hand.  
 - If your hand goes **over 21**, you **bust** and automatically lose.
 
@@ -27,7 +27,7 @@ Blackjack is a classic card game where players try to get as close as possible t
 
 ---
 
-### 🔄 Gameplay
+### Gameplay
 
 1. **Starting the Game**
    - Each player is dealt **two cards** face up.  
@@ -45,7 +45,7 @@ Blackjack is a classic card game where players try to get as close as possible t
 
 ---
 
-### 🏆 Winning
+### Winning
 - ✅ You win if your hand is closer to **21** than the dealer’s.  
 - ✅ You win if the dealer **busts** (goes over 21).  
 - ❌ You lose if you **bust**.  
