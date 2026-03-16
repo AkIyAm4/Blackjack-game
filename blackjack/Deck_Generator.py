@@ -1,23 +1,5 @@
 import random
 
-def shuffling_choice():
-    print("===== Shuffling Methods =====")
-    print("1. Random Shuffle")
-    print("2. Riffle Shuffle")
-    print("3. Overhand Shuffle")
-    while True:
-        choice = int(input("Choose a shuffling method: "))
-
-        deck = Shuffling()
-
-        if choice == 1:
-            deck.random()
-            return deck.cards
-
-        elif choice == 2:
-            deck.riffle()
-            return deck.cards
-
 class Shuffling:
     def __init__(self):
         self.cards = [r + s for s in ["♠", "♥", "♦", "♣"]
@@ -41,15 +23,31 @@ class Shuffling:
             self.cards[:] = shuffled
         return self.cards
 
+    def overhand(self):
+        # Overhand shuffle for later
+        pass
+
 class Deck:
-    def __init__(self):
-        self.cards = shuffling_choice()
+    def __init__(self, shuffle_method="random"):
+        shuffler = Shuffling()
+        if shuffle_method == "riffle":
+            self.cards = shuffler.riffle()
+        else:
+            self.cards = shuffler.random()
 
     def draw(self):
         return self.cards.pop()
 
-    def deck_regen(self): # NEEDS FIXING
+    def deck_regen(self, shuffle_method="random"):
         if len(self.cards) < 11:
-            print("\nRegenerating the deck, please wait...")
-            self.__init__()
-            print("\nRegeneration done.")
+            self.__init__(shuffle_method)
+
+if __name__ == "__main__":
+    cards = Deck().cards
+    count = 0
+    for card in cards:
+        print(card, end=" ")
+        count += 1
+        if count % 13 == 0:
+            print()
+            
