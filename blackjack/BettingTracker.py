@@ -11,3 +11,4 @@ class BetTracker:
             self.streak += 1
         else:
             self.streak = 0
+dada
